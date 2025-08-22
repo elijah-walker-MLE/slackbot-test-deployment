@@ -1,22 +1,24 @@
-app = "acronym-bot-elijah"   # change to a unique name
-primary_region = "iad"
+app = "acronym-bot-staging"   # must match your Fly app name
+primary_region = "iad"        # pick your closest region
 
 [build]
+  # If your file is named Dockerfile (capital D), keep this line or delete the block.
+  # If it's lowercase 'dockerfile', change the next line to: dockerfile = "dockerfile"
   dockerfile = "Dockerfile"
 
-# Socket Mode: no inbound HTTP service needed
+# No inbound HTTP services needed for Socket Mode
 
 [mounts]
   source = "data"
   destination = "/data"
 
-[processes]
-  app = "python app.py"
-
 [env]
   DB_PATH = "/data/acronyms.db"
 
+[processes]
+  app = "python app.py"
+
 [vm]
-  memory = "256mb"
   cpu_kind = "shared"
   cpus = 1
+  memory = "256mb"
