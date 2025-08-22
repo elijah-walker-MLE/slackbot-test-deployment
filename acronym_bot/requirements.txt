@@ -1,7 +1,0 @@
-dotenv==0.9.9
-numpy==2.3.2
-python-dotenv==1.1.1
-setuptools==80.9.0
-slack_bolt==1.23.0
-slack_sdk==3.36.0
-wheel==0.45.1
