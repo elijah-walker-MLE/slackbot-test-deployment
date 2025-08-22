@@ -1,0 +1,22 @@
+app = "acronym-bot-elijah"   # change to a unique name
+primary_region = "iad"
+
+[build]
+  dockerfile = "Dockerfile"
+
+# Socket Mode: no inbound HTTP service needed
+
+[mounts]
+  source = "data"
+  destination = "/data"
+
+[processes]
+  app = "python app.py"
+
+[env]
+  DB_PATH = "/data/acronyms.db"
+
+[vm]
+  memory = "256mb"
+  cpu_kind = "shared"
+  cpus = 1
